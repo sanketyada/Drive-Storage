@@ -1,0 +1,29 @@
+{
+  "name": "drive-storage",
+  "version": "1.0.0",
+  "description": "We are practicing out Backendright now by making the Clone of Google Drive that will provide all functionality same like G-Drive but differ in functionality.",
+  "homepage": "https://github.com/sanketyada/Drive-Storage#readme",
+  "bugs": {
+    "url": "https://github.com/sanketyada/Drive-Storage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanketyada/Drive-Storage.git"
+  },
+  "license": "ISC",
+  "author": "Sanket Yadav",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.4",
+    "nodemon": "^3.1.11"
+  }
+}
