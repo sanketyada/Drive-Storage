@@ -15,14 +15,14 @@ const userSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
     unique: true,
-    minlength: [3, "Email is Required"],
+    minlength: [13, "Email is Required"],
   },
   password: {
     type: String,
     required: true,
     trim: true,
     lowercase: true,
-    minlength: [3, "Password is Required"],
+    minlength: [5, "Password is Required"],
   },
 });
 

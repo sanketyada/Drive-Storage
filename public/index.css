@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(107, 109, 111);
+}
+/* router.post(
+  "/login",
+  body("username").trim().isLength({ min: 3 }),
+  body("password").trim().isLength({ min: 5 }),
+  async (req, res) => {
+    const error = validationResult(req)
+    if(!error.isEmpty()){
+      res.status(400).json({
+        error:error.array(),
+        message:"Invalid Data Format"
+      })
+    }
+    const { username, password } = req.body;
+
+    const user = await User.findOne({username:username})
+    // console.log(user)
+    if(!user){
+      res.status(400).json({
+        message:"Username or Password is Incorrect"
+      })
+    }
+    console.log(password)
+    console.log(user.password)
+    
+
+     const isMatch  = await bcrypt.compare(password,user.password)
+     console.log(isMatch)
+
+    // if(!isMatch){
+    //   res.status(401).json({
+    //     message:"Username or Password is Incorrectdd"
+    //   })
+    // }
+
+    // //if all Good 
+    // res.json("User Logged inn")
+ */
+
+  },
+);
