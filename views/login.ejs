@@ -3,14 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-     <link rel="stylesheet" href="/index.css">
+    <title>Sign in – Drive</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body style="background-color: teal;">
-    <form action="/user/login" method="post">
-      <input type="text" placeholder="Enter your name" name="username" /><br>
-      <input type="text" placeholder="Enter your password" name="password" /> <br>
-      <button>Submit</button>
-    </form>
+
+  <body
+    class="bg-gray-100 min-h-screen flex items-center justify-center font-sans"
+  >
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <img
+          src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png"
+          alt="Drive"
+          class="w-12 h-12"
+        />
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-2xl font-normal text-gray-900 text-center mb-2">
+        Sign in
+      </h1>
+      <p class="text-sm text-gray-600 text-center mb-6">to continue to Drive</p>
+
+      <!-- Form -->
+      <form action="/user/login" method="post" class="space-y-4">
+        <input
+          type="text"
+          name="username"
+          placeholder="Email or phone"
+          class="w-full px-4 py-3 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          class="w-full px-4 py-3 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+
+        <div class="flex justify-between items-center">
+          <p class="text-sm text-gray-600">New here?</p>
+          <a
+            href="/user/register"
+            class="text-sm text-blue-600 hover:underline font-medium"
+          >
+            Create account
+          </a>
+        </div>
+
+        <button
+          class="w-full bg-blue-600 text-white py-2.5 rounded-md hover:bg-blue-700 transition font-medium"
+        >
+          Next
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <p class="text-xs text-gray-500 text-center mt-6">
+        Not your computer? Use Guest mode to sign in privately.
+      </p>
+    </div>
   </body>
 </html>

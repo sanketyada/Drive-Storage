@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Drive</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen font-sans text-gray-800">
+
+    <!-- Top Bar -->
+    <header class="bg-white border-b px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img
+          src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png"
+          class="w-8 h-8"
+        />
+        <span class="text-lg font-medium">My Drive</span>
+      </div>
+
+      <a
+        href="/user/logout"
+        class="text-sm text-red-600 hover:underline font-medium"
+      >
+        Logout
+      </a>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto p-6">
+
+      <!-- Upload Card -->
+      <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+
+        <h1 class="text-xl font-medium mb-1">Upload files</h1>
+        <p class="text-sm text-gray-500 mb-4">
+          Choose a file and click upload
+        </p>
+
+        <!-- SAME FORM LOGIC -->
+        <form
+          action="/upload-file"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label
+            for="dropzone-file"
+            class="flex flex-col items-center justify-center h-36 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition mb-4"
+          >
+            <svg
+              class="w-10 h-10 mb-3 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 16V4a4 4 0 018 0v12m-4 4v-4"
+              />
+            </svg>
+
+            <p class="text-sm text-gray-500">
+              Click to select file
+            </p>
+
+            <input
+              id="dropzone-file"
+              type="file"
+              class="hidden"
+              name="file"
+            />
+          </label>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-medium transition"
+          >
+            Upload
+          </button>
+        </form>
+      </div>
+
+      <!-- Uploaded Files -->
+      <h2 class="text-sm font-medium text-gray-500 mb-3">
+        Your files
+      </h2>
+
+      <div class="space-y-3">
+        <% userFiles.forEach((file)=> { %>
+          <div class="bg-white rounded-lg border p-3 flex items-center justify-between hover:shadow-sm transition">
+
+            <div class="flex items-center gap-3">
+              <img
+                src="<%= file.path %>"
+                alt="Uploaded image"
+                class="w-16 h-16 object-cover rounded-md border"
+              />
+
+              <div class="max-w-xs">
+                <h3 class="text-sm font-medium truncate">
+                  <%= file.originalname %>
+                </h3>
+                <p class="text-xs text-gray-500">Image</p>
+              </div>
+            </div>
+
+            <a
+              href="/download/<%= file._id %>"
+              class="text-sm text-blue-600 hover:underline"
+            >
+              Download
+            </a>
+          </div>
+        <% }) %>
+      </div>
+
+    </main>
+
+  </body>
+</html>

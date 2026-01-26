@@ -1,17 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-     <link rel="stylesheet" href="/index.css">
-  </head>
-  <body style="background-color: teal;">
-    <form action="/user/register" method="post">
-      <input type="text" placeholder="Enter your name" name="username" /><br>
-      <input type="text" placeholder="Enter your email" name="email" /><br>
-      <input type="text" placeholder="Enter your password" name="password" /> <br>
-      <button>Submit</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans">
+
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+
+    <!-- Logo -->
+    <div class="flex justify-center mb-6">
+      <img
+        src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png"
+        alt="Drive"
+        class="w-12 h-12"
+      />
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-2xl font-normal text-gray-900 text-center mb-2">
+      Create your account
+    </h1>
+    <p class="text-sm text-gray-600 text-center mb-6">
+      Continue to Drive
+    </p>
+
+    <!-- Form -->
+    <form action="/user/register" method="post" class="space-y-4">
+
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        class="w-full px-4 py-3 border rounded-md focus:outline-none focus:border-blue-500"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        class="w-full px-4 py-3 border rounded-md focus:outline-none focus:border-blue-500"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Create password"
+        class="w-full px-4 py-3 border rounded-md focus:outline-none focus:border-blue-500"
+        required
+      />
+
+      <button
+        class="w-full bg-blue-600 text-white py-2.5 rounded-md hover:bg-blue-700 transition font-medium"
+      >
+        Create account
+      </button>
+
     </form>
-  </body>
+
+    <!-- Footer -->
+    <p class="text-sm text-gray-600 text-center mt-6">
+      Already have an account?
+      <a href="/user/login" class="text-blue-600 hover:underline font-medium">
+        Sign in
+      </a>
+    </p>
+
+  </div>
+
+</body>
 </html>
