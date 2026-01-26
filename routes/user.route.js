@@ -18,8 +18,12 @@ router.post(
   async (req, res) => {
     const error = validationResult(req);
     if (!error.isEmpty()) {
-      return res.status(400).json({
-        error: error,
+      // return res.status(400).json({
+      //   error: error,
+      //   message: "Invalid Data",
+      // });
+      res.status(401).render("error", {
+        status: 401,
         message: "Invalid Data",
       });
     }
@@ -29,7 +33,11 @@ router.post(
     let user = await UserModel.findOne({ username: username });
     let userEmail = await UserModel.findOne({ email: email });
     if (user || userEmail) {
-      return res.status(401).json({
+      // return res.status(401).json({
+      //   message: "User Already Exist",
+      // });
+      res.status(401).render("error", {
+        status: 401,
         message: "User Already Exist",
       });
     }
@@ -39,9 +47,13 @@ router.post(
       email,
       password: hashedPassword,
     });
-    res.json({
-      user: newUser,
-      message: "User Created",
+    // res.json({
+    //   user: newUser,
+    //   message: "User Created",
+    // });
+    res.status(401).render("error", {
+      status: 401,
+      message: "User Craeted",
     });
   },
 );
